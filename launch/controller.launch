@@ -1,17 +1,8 @@
 <?xml version="1.0" ?>
 <launch>
-  <param name="/use_sim_time" value="true" />
+  <node name="assembly_dummy_controller" pkg="assembly_dummy_controller" type="assembly_dummy_controller" output="screen" />  
 
-  <node name="assembly_dummy_controller" pkg="assembly_dummy_controller" type="assembly_dummy_controller" output="screen" >  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" >  
+    <remap from="/joint_states" to="/panda_dual/joint_states" />
   </node>
-
-  <!--<node name="social_task_manager" pkg="social_task_manager" type="social_demo.py" output="screen" >  
-  </node>-->
-  
-  <!-- <node name="social_task_manager" pkg="social_task_manager" type="social_demo2.py" output="screen" >  
-  </node> -->
-
-  <!-- <node name="social_task_manager" pkg="social_task_manager" type="social_demo3.py" output="screen" >  
-  </node> -->
-
 </launch>
