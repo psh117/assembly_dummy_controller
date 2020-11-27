@@ -10,6 +10,8 @@ find_package(catkin REQUIRED COMPONENTS
   actionlib
   actionlib_msgs
   franka_gripper
+  assembly_dxl_gripper
+  franka_msgs
 )
 
 find_package(Eigen3 REQUIRED)
@@ -51,12 +53,18 @@ set (SRC
   src/main.cpp
 )
 
+
 add_library(coppelia_remote_api ${COPPELIA_SRC})
 add_executable(assembly_dummy_controller ${SRC})
+add_executable(assembly_dummy_controller_for_all src/dummy_for_all.cpp)
 
 target_link_libraries(coppelia_remote_api rt)
 target_link_libraries(assembly_dummy_controller
   ${catkin_LIBRARIES}
   coppelia_remote_api
+  rt
+)
+target_link_libraries(assembly_dummy_controller_for_all
+  ${catkin_LIBRARIES}
   rt
 )
