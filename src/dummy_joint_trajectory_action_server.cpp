@@ -33,7 +33,7 @@ void DummyJointTrajectoryActionServer::goalCallback()
     {
       active_arm_ = *iter;
       find_arm = true;
-      int index = std::distance(arm_names_.begin(), std::find(arm_names_.begin(), arm_names_.end(), active_arm_));
+      // int index = std::distance(arm_names_.begin(), std::find(arm_names_.begin(), arm_names_.end(), active_arm_));
       // std::cout << "arm name : " << *iter << std::endl;
       // std::cout << "arm name2 : " << goal_->trajectory.joint_names[0] << std::endl;
       // std::cout << "arm index: " << index << std::endl;

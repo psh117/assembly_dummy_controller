@@ -58,7 +58,13 @@ int main(int argc, char **argv)
   ros::ServiceServer switch_controller_server = node_handle.advertiseService("/panda_dual/controller_manager/switch_controller", 
   dummyServiceFunction<controller_manager_msgs::SwitchController>);
 
-  ros::ServiceServer set_load_server = node_handle.advertiseService("/panda_dual/panda_right/set_load", 
+  ros::ServiceServer set_load_server1 = node_handle.advertiseService("/panda_dual/panda_left/set_load", 
+  dummyServiceFunction<franka_msgs::SetLoad>);
+
+  ros::ServiceServer set_load_server2 = node_handle.advertiseService("/panda_dual/panda_right/set_load", 
+  dummyServiceFunction<franka_msgs::SetLoad>);
+
+  ros::ServiceServer set_load_server3 = node_handle.advertiseService("/panda_dual/panda_top/set_load", 
   dummyServiceFunction<franka_msgs::SetLoad>);
 
   DummyActionServer<franka_msgs::ErrorRecoveryAction> error_recovery_action_server
