@@ -36,6 +36,7 @@
 #include <franka_msgs/SetLoad.h>
 #include <controller_manager_msgs/SwitchController.h>
 #include <control_msgs/FollowJointTrajectoryAction.h>
+#include <assembly_msgs/SetSpiralGain.h>
 
 using namespace std;
 
@@ -54,6 +55,9 @@ int main(int argc, char **argv)
 
   ros::ServiceServer gain_server = node_handle.advertiseService("/assembly_dual_controller/joint_trajectory_control_gain_set", 
   dummyServiceFunction<assembly_msgs::SetTrajectoryFollowerGain>);
+
+  ros::ServiceServer spiral_gain_server = node_handle.advertiseService("/assembly_dual_controller/assemble_spiral_control_gain_set", 
+  dummyServiceFunction<assembly_msgs::SetSpiralGain>);
 
   ros::ServiceServer switch_controller_server = node_handle.advertiseService("/panda_dual/controller_manager/switch_controller", 
   dummyServiceFunction<controller_manager_msgs::SwitchController>);

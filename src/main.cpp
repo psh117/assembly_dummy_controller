@@ -18,6 +18,7 @@
 #include <assembly_msgs/AssembleParallelAction.h>
 #include <assembly_msgs/AssembleMoveAction.h>
 #include <assembly_msgs/IdleControl.h>
+#include <assembly_msgs/SetSpiralGain.h>
 
 
 using namespace std;
@@ -37,6 +38,9 @@ int main(int argc, char **argv)
 
   ros::ServiceServer idle_server = node_handle.advertiseService("/assembly_dual_controller/idle_control", 
   dummyServiceFunction<assembly_msgs::IdleControl>);
+
+  ros::ServiceServer spiral_gain_server = node_handle.advertiseService("/assembly_dual_controller/assemble_spiral_control_gain_set", 
+  dummyServiceFunction<assembly_msgs::SetSpiralGain>);
 
   DummyJointTrajectoryActionServer joint_trajectory_action_server
   ("/assembly_dual_controller/joint_trajectory_control", node_handle);
