@@ -31,6 +31,7 @@
 #include <assembly_msgs/SetTrajectoryFollowerGain.h>
 #include <assembly_dxl_gripper/Move.h>
 #include <trajectory_msgs/JointTrajectoryPoint.h>
+#include <assembly_msgs/AssembleTripleHoldAction.h>
 
 #include <franka_msgs/ErrorRecoveryAction.h>
 #include <franka_msgs/SetLoad.h>
@@ -129,6 +130,9 @@ int main(int argc, char **argv)
     ("/assembly_dual_controller/assemble_back_forth_control", node_handle);
     
   DummyActionServer<assembly_msgs::AssembleBoltingReadyAction> assemble_bolting_ready_action_server
+    ("/assembly_dual_controller/assemble_bolting_ready_control", node_handle);
+
+  DummyActionServer<assembly_msgs::AssembleTripleHoldAction> assemble_triple_hold_action_server
     ("/assembly_dual_controller/assemble_bolting_ready_control", node_handle);
 
 
