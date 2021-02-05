@@ -133,7 +133,7 @@ int main(int argc, char **argv)
     ("/assembly_dual_controller/assemble_bolting_ready_control", node_handle);
 
   DummyActionServer<assembly_msgs::AssembleTripleHoldAction> assemble_triple_hold_action_server
-    ("/assembly_dual_controller/assemble_bolting_ready_control", node_handle);
+    ("/assembly_dual_controller/assemble_triple_hold", node_handle);
 
 
   DummyActionServer<franka_gripper::MoveAction> franka_gripper_move_left
